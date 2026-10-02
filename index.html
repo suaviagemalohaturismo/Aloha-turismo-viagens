@@ -1,0 +1,298 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aloha Turismo - Sua Agência de Viagens</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0284c7',
+                            darkBlue: '#0369a1',
+                            orange: '#f97316',
+                            yellow: '#eab308',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1920&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navegação / Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-2 text-xl md:text-2xl font-bold text-brand-blue">
+                <i class="fa-solid fa-plane-departure text-brand-orange"></i>
+                <span>ALOHA <span class="text-brand-orange">TURISMO</span></span>
+            </a>
+
+            <!-- Menu Desktop -->
+            <nav class="hidden md:flex items-center gap-6 font-medium text-gray-700">
+                <a href="#inicio" class="hover:text-brand-blue transition">Início</a>
+                <a href="#pacotes" class="hover:text-brand-blue transition">Pacotes Rodoviários</a>
+                <a href="#pacotes" class="hover:text-brand-blue transition">Pacotes Aéreos</a>
+                <a href="#diferenciais" class="hover:text-brand-blue transition">Sobre Nós</a>
+                <a href="#contato" class="hover:text-brand-blue transition">Contato</a>
+            </nav>
+
+            <!-- Botão de Ação / Contato -->
+            <div class="hidden md:flex items-center gap-3">
+                <a href="mailto:suaviagemalohaturismo@gmail.com" class="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-4 py-2 rounded-lg transition shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-lg"></i> Fale Conosco
+                </a>
+            </div>
+
+            <!-- Botão Menu Mobile -->
+            <button id="mobile-menu-btn" class="md:hidden text-2xl text-gray-700 focus:outline-none p-2">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 py-3 space-y-3 shadow-lg absolute w-full left-0">
+            <a href="#inicio" class="block text-gray-700 hover:text-brand-blue py-2 border-b">Início</a>
+            <a href="#pacotes" class="block text-gray-700 hover:text-brand-blue py-2 border-b">Pacotes Rodoviários</a>
+            <a href="#pacotes" class="block text-gray-700 hover:text-brand-blue py-2 border-b">Pacotes Aéreos</a>
+            <a href="#diferenciais" class="block text-gray-700 hover:text-brand-blue py-2 border-b">Sobre Nós</a>
+            <a href="#contato" class="block text-gray-700 hover:text-brand-blue py-2 border-b">Contato</a>
+            <a href="mailto:suaviagemalohaturismo@gmail.com" class="block text-center bg-brand-orange text-white py-3 rounded-lg font-semibold mt-4 flex justify-center items-center gap-2">
+                <i class="fa-solid fa-envelope text-lg"></i> Enviar E-mail
+            </a>
+        </div>
+    </header>
+
+    <!-- Banner Principal (Hero Section) -->
+    <section id="inicio" class="hero-bg text-white py-16 md:py-24 px-4 min-h-[500px] flex flex-col justify-center items-center relative">
+        <div class="max-w-4xl text-center space-y-4">
+            <span class="bg-brand-orange text-white text-xs uppercase font-bold tracking-wider px-4 py-1.5 rounded-full inline-block shadow-md">Viva experiências inesquecíveis</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight drop-shadow-lg">Sua Próxima Viagem Começa Aqui!</h1>
+            <p class="text-lg md:text-xl text-gray-100 drop-shadow-md">Pacotes rodoviários, aéreos, cruzeiros e passeios imperdíveis com o melhor custo-benefício.</p>
+        </div>
+
+        <!-- Barra de Pesquisa de Pacotes -->
+        <div class="w-full max-w-4xl bg-white text-gray-800 rounded-xl shadow-2xl p-5 md:p-6 mt-10">
+            <form class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+                <div>
+                    <label class="block text-xs font-semibold text-gray-500 uppercase mb-1">Destino</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-location-dot absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <select class="w-full border border-gray-300 rounded-lg py-2.5 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue appearance-none">
+                            <option value="">Todos os Destinos</option>
+                            <option value="arraial">Arraial do Cabo / RJ</option>
+                            <option value="buzios">Búzios / RJ</option>
+                            <option value="camboriu">Balneário Camboriú / SC</option>
+                            <option value="capitolio">Capitólio / MG</option>
+                            <option value="santiago">Santiago / Chile</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-500 uppercase mb-1">Mês de Saída</label>
+                    <div class="relative">
+                        <i class="fa-regular fa-calendar absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <input type="month" class="w-full border border-gray-300 rounded-lg py-2 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-500 uppercase mb-1">Tipo de Viagem</label>
+                    <div class="relative">
+                        <i class="fa-solid fa-suitcase absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                        <select class="w-full border border-gray-300 rounded-lg py-2.5 pl-9 pr-3 text-sm focus:outline-none focus:ring-2 focus:ring-brand-blue appearance-none">
+                            <option value="">Todos os Tipos</option>
+                            <option value="rodoviario">Rodoviário</option>
+                            <option value="aereo">Aéreo</option>
+                            <option value="bate-volta">Bate e Volta</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="flex items-end">
+                    <button type="button" class="w-full bg-brand-blue hover:bg-brand-darkBlue text-white font-semibold py-2.5 rounded-lg transition shadow-md flex justify-center items-center gap-2">
+                        <i class="fa-solid fa-magnifying-glass"></i> Pesquisar
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Seção de Diferenciais / Vantagens -->
+    <section id="diferenciais" class="py-12 bg-white border-b">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="p-6 rounded-xl bg-blue-50/50 hover:bg-blue-50 transition border border-transparent hover:border-blue-100">
+                <i class="fa-solid fa-shield-halved text-4xl text-brand-blue mb-3"></i>
+                <h3 class="font-bold text-gray-800 text-lg">Site Seguro</h3>
+                <p class="text-sm text-gray-500 mt-2">Compra garantida com total segurança de dados</p>
+            </div>
+            <div class="p-6 rounded-xl bg-orange-50/50 hover:bg-orange-50 transition border border-transparent hover:border-orange-100">
+                <i class="fa-solid fa-credit-card text-4xl text-brand-orange mb-3"></i>
+                <h3 class="font-bold text-gray-800 text-lg">Parcelamento</h3>
+                <p class="text-sm text-gray-500 mt-2">Em até 10x no cartão, PIX ou boleto</p>
+            </div>
+            <div class="p-6 rounded-xl bg-blue-50/50 hover:bg-blue-50 transition border border-transparent hover:border-blue-100">
+                <i class="fa-solid fa-bus text-4xl text-brand-blue mb-3"></i>
+                <h3 class="font-bold text-gray-800 text-lg">Ônibus Confortáveis</h3>
+                <p class="text-sm text-gray-500 mt-2">Frota moderna com ar-condicionado e semi-leito</p>
+            </div>
+            <div class="p-6 rounded-xl bg-orange-50/50 hover:bg-orange-50 transition border border-transparent hover:border-orange-100">
+                <i class="fa-solid fa-user-check text-4xl text-brand-orange mb-3"></i>
+                <h3 class="font-bold text-gray-800 text-lg">Guias Credenciados</h3>
+                <p class="text-sm text-gray-500 mt-2">Acompanhamento especializado durante a viagem</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Pacotes em Destaque -->
+    <section id="pacotes" class="py-20 max-w-7xl mx-auto px-4">
+        <div class="text-center mb-14">
+            <h2 class="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4">Pacotes em Destaque</h2>
+            <div class="w-24 h-1 bg-brand-orange mx-auto mb-4 rounded-full"></div>
+            <p class="text-gray-600 text-lg">Escolha seu próximo destino e garanta sua vaga agora mesmo!</p>
+        </div>
+
+        <!-- Grid de Cards de Viagem -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- Card 1 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col transform hover:-translate-y-1">
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?q=80&w=600&auto=format&fit=crop" alt="Arraial do Cabo" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition"></div>
+                    <span class="absolute top-4 left-4 bg-red-500 text-white text-xs font-bold px-3 py-1.5 rounded shadow">ÚLTIMAS VAGAS</span>
+                    <span class="absolute top-4 right-4 bg-brand-blue text-white text-xs font-bold px-3 py-1.5 rounded shadow">RODOVIÁRIO</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Arraial do Cabo & Búzios / RJ</h3>
+                        <div class="flex items-center text-sm text-gray-500 mb-4 gap-2">
+                            <i class="fa-regular fa-calendar-alt text-brand-orange"></i>
+                            <span>Saída: 15/11/2026</span>
+                            <span class="text-gray-300">|</span>
+                            <span>3 Dias</span>
+                        </div>
+                        
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Ônibus Semi-Leito Turismo</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Hospedagem com Café da Manhã</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Guia e Seguro Viagem Inclusos</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-5 mt-2 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 font-semibold uppercase block">A partir de:</span>
+                            <span class="text-2xl font-extrabold text-brand-darkBlue">R$ 718,80</span>
+                        </div>
+                        <a href="mailto:suaviagemalohaturismo@gmail.com?subject=Interesse%20no%20pacote%20Arraial%20do%20Cabo" class="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition shadow-md">
+                            Reservar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col transform hover:-translate-y-1">
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1512100356356-de1b84283e18?q=80&w=600&auto=format&fit=crop" alt="Balneário Camboriú" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition"></div>
+                    <span class="absolute top-4 left-4 bg-brand-yellow text-gray-900 text-xs font-bold px-3 py-1.5 rounded shadow">PROMOÇÃO</span>
+                    <span class="absolute top-4 right-4 bg-brand-blue text-white text-xs font-bold px-3 py-1.5 rounded shadow">RODOVIÁRIO</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Balneário Camboriú & Beto Carrero</h3>
+                        <div class="flex items-center text-sm text-gray-500 mb-4 gap-2">
+                            <i class="fa-regular fa-calendar-alt text-brand-orange"></i>
+                            <span>Saída: 04/12/2026</span>
+                            <span class="text-gray-300">|</span>
+                            <span>4 Dias</span>
+                        </div>
+                        
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Transporte Executivo Luxo</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Hotel 4 Estrelas próximo à praia</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Ingresso Beto Carrero 1 Dia</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-5 mt-2 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 font-semibold uppercase block">A partir de:</span>
+                            <span class="text-2xl font-extrabold text-brand-darkBlue">R$ 867</span>
+                        </div>
+                        <a href="mailto:suaviagemalohaturismo@gmail.com?subject=Interesse%20no%20pacote%20Balneario%20Camboriu" class="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition shadow-md">
+                            Reservar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col transform hover:-translate-y-1">
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?q=80&w=600&auto=format&fit=crop" alt="Rio de Janeiro" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition"></div>
+                    <span class="absolute top-4 left-4 bg-purple-600 text-white text-xs font-bold px-3 py-1.5 rounded shadow">ESPECIAL RÉVEILLON</span>
+                    <span class="absolute top-4 right-4 bg-brand-blue text-white text-xs font-bold px-3 py-1.5 rounded shadow">AÉREO</span>
+                </div>
+                <div class="p-6 flex-1 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Réveillon em Copacabana / RJ</h3>
+                        <div class="flex items-center text-sm text-gray-500 mb-4 gap-2">
+                            <i class="fa-regular fa-calendar-alt text-brand-orange"></i>
+                            <span>Saída: 30/12/2026</span>
+                            <span class="text-gray-300">|</span>
+                            <span>5 Dias</span>
+                        </div>
+                        
+                        <ul class="text-sm text-gray-600 space-y-2 mb-6">
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Passagem Aérea Ida e Volta</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> Hospedagem frente mar Copacabana</li>
+                            <li class="flex items-start"><i class="fa-solid fa-check text-green-500 mt-1 mr-2"></i> City Tour: Cristo e Pão de Açúcar</li>
+                        </ul>
+                    </div>
+
+                    <div class="border-t border-gray-100 pt-5 mt-2 flex items-center justify-between">
+                        <div>
+                            <span class="text-xs text-gray-400 font-semibold uppercase block">A partir de:</span>
+                            <span class="text-2xl font-extrabold text-brand-darkBlue">R$ 2.388</span>
+                        </div>
+                        <a href="mailto:suaviagemalohaturismo@gmail.com?subject=Interesse%20no%20pacote%20Reveillon%20Rio" class="bg-brand-orange hover:bg-orange-600 text-white font-semibold px-5 py-2.5 rounded-lg text-sm transition shadow-md">
+                            Reservar
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4 - Santiago (Chile) -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 flex flex-col transform hover:-translate-y-1">
+                <div class="relative group">
+                    <img src="https://images.unsplash.com/photo-1518182170546-07fb61afbfdd?q=80&w=600&auto=format&fit=crop" alt="Santiago Chile" class="w-full h-56 object-cover group-hover:scale-105 transition duration-500">
+                    <div class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition"></div>
+                    <span class="absolute top-4 left-4 bg-blue-600 text-white text-xs font-bold px-3 py-1.5 rounded shadow">INTERNACIONAL</span>
+                    <span class="absolute top-4 right-4 bg-brand-blue
